@@ -1,0 +1,1171 @@
+2022-04-13 12:28:43,706 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 8036 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:28:43,710 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:28:43,749 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:28:43,749 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:28:43,749 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:28:43,749 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:28:44,214 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:28:44,264 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 42 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:28:44,894 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:28:44,901 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:28:44,901 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:28:44,993 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:28:44,993 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1243 ms
+2022-04-13 12:28:45,016 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:28:45,127 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:28:45,134 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:28:45,318 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:28:45,367 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:28:45,506 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:28:45,605 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:28:46,205 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:28:46,212 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:28:46,218 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext refresh: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mobileSearchApplication': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'chrome.web.driver.address' in value "${chrome.web.driver.address}"
+2022-04-13 12:28:46,218 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:28:46,221 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:28:46,225 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:28:46,226 INFO  org.apache.catalina.core.StandardService           log: Stopping service [Tomcat]
+2022-04-13 12:28:46,234 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener logMessage: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-04-13 12:28:46,265 ERROR o.springframework.boot.SpringApplication           reportFailure: Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mobileSearchApplication': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'chrome.web.driver.address' in value "${chrome.web.driver.address}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:18)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'chrome.web.driver.address' in value "${chrome.web.driver.address}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:191)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1330)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 22 common frames omitted
+2022-04-13 12:29:08,938 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 21576 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:29:08,940 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:29:08,974 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:29:08,974 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:29:08,975 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:29:08,975 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:29:09,376 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:29:09,421 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 38 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:29:09,990 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:29:09,996 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:29:09,996 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:29:10,090 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:29:10,090 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1115 ms
+2022-04-13 12:29:10,112 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:29:10,210 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:29:10,217 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:29:10,385 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:29:10,421 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:29:10,525 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:29:10,607 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:29:11,144 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:29:11,151 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:29:11,544 INFO  org.openqa.selenium.Capabilities                   chrome: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+2022-04-13 12:29:12,428 WARN  org.openqa.selenium.json.JsonOutput                lambda$new$14: Attempt to convert JsonElement from GSON. This functionality is deprecated. Diagnostic stacktrace follows
+org.openqa.selenium.json.JsonException: Stack trace to determine cause of warning
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: ChromeDriver
+	at org.openqa.selenium.json.JsonOutput.lambda$new$14(JsonOutput.java:145)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:330)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:155)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at java.util.TreeMap.forEach(TreeMap.java:1005)
+	at java.util.Collections$UnmodifiableMap.forEach(Collections.java:1507)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:255)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:100)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:94)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:178)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:167)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:124)
+	at com.internal.mobileSearch.AppConfig.webDriver(AppConfig.java:18)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$c22fc6aa.CGLIB$webDriver$0(<generated>)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$c22fc6aa$$FastClassBySpringCGLIB$$d381230c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$c22fc6aa.webDriver(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-13 12:29:13,066 INFO  o.o.selenium.remote.ProtocolHandshake              createSession: Detected dialect: W3C
+2022-04-13 12:29:13,390 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration openEntityManagerInViewInterceptor: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-13 12:29:13,631 INFO  o.s.b.d.a.OptionalLiveReloadServer                 startServer: LiveReload server is running on port 35729
+2022-04-13 12:29:13,655 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            start: Tomcat started on port(s): 8099 (http) with context path ''
+2022-04-13 12:29:13,664 INFO  c.i.mobileSearch.MobileSearchApplication           logStarted: Started MobileSearchApplication in 5.04 seconds (JVM running for 5.832)
+2022-04-13 12:29:50,492 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-13 12:29:50,492 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Initializing Servlet 'dispatcherServlet'
+2022-04-13 12:29:50,493 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Completed initialization in 1 ms
+2022-04-13 12:33:42,961 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:33:42,964 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:33:42,965 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:33:47,915 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 8064 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:33:47,917 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:33:47,950 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:33:47,950 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:33:47,950 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:33:47,950 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:33:48,363 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:33:48,411 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:33:48,989 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:33:48,995 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:33:48,996 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:33:49,075 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:33:49,076 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1125 ms
+2022-04-13 12:33:49,096 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:33:49,196 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:33:49,203 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:33:49,358 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:33:49,394 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:33:49,498 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:33:49,580 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:33:50,122 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:33:50,130 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:33:50,481 INFO  org.openqa.selenium.Capabilities                   chrome: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+2022-04-13 12:33:51,375 WARN  org.openqa.selenium.json.JsonOutput                lambda$new$14: Attempt to convert JsonElement from GSON. This functionality is deprecated. Diagnostic stacktrace follows
+org.openqa.selenium.json.JsonException: Stack trace to determine cause of warning
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: ChromeDriver
+	at org.openqa.selenium.json.JsonOutput.lambda$new$14(JsonOutput.java:145)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:330)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:155)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at java.util.TreeMap.forEach(TreeMap.java:1005)
+	at java.util.Collections$UnmodifiableMap.forEach(Collections.java:1507)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:255)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:100)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:94)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:178)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:167)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:124)
+	at com.internal.mobileSearch.AppConfig.webDriver(AppConfig.java:18)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$71893467.CGLIB$webDriver$0(<generated>)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$71893467$$FastClassBySpringCGLIB$$cb9444d3.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$71893467.webDriver(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-13 12:33:51,991 INFO  o.o.selenium.remote.ProtocolHandshake              createSession: Detected dialect: W3C
+2022-04-13 12:33:52,284 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration openEntityManagerInViewInterceptor: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-13 12:33:52,511 INFO  o.s.b.d.a.OptionalLiveReloadServer                 startServer: LiveReload server is running on port 35729
+2022-04-13 12:33:52,535 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            start: Tomcat started on port(s): 8099 (http) with context path ''
+2022-04-13 12:33:52,544 INFO  c.i.mobileSearch.MobileSearchApplication           logStarted: Started MobileSearchApplication in 4.933 seconds (JVM running for 5.734)
+2022-04-13 12:34:01,328 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-13 12:34:01,329 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Initializing Servlet 'dispatcherServlet'
+2022-04-13 12:34:01,329 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Completed initialization in 0 ms
+2022-04-13 12:34:13,510 ERROR o.a.c.c.C.[.[.[/].[dispatcherServlet]              log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=100.0.4896.88)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.88, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\Ali\AppData\Local\...}, goog:chromeOptions: {debuggerAddress: localhost:64693}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3163fdccd3c358f8718a32b40fbddc2c] with root cause
+org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=100.0.4896.88)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.88, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\Ali\AppData\Local\...}, goog:chromeOptions: {debuggerAddress: localhost:64693}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3163fdccd3c358f8718a32b40fbddc2c
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:277)
+	at com.internal.mobileSearch.backend.util.CrawlForBrand.getBrand(CrawlForBrand.java:41)
+	at com.internal.mobileSearch.frontend.controller.BrandController.addBrand(BrandController.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2022-04-13 12:34:30,966 WARN  o.s.b.f.support.DisposableBeanAdapter              invokeCustomDestroyMethod: Custom destroy method 'close' on bean with name 'webDriver' threw an exception: org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=100.0.4896.88)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.88, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\Ali\AppData\Local\...}, goog:chromeOptions: {debuggerAddress: localhost:64693}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3163fdccd3c358f8718a32b40fbddc2c
+2022-04-13 12:34:30,966 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:34:30,968 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:34:30,970 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:34:33,507 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 10208 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:34:33,509 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:34:33,542 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:34:33,542 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:34:33,542 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:34:33,542 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:34:33,962 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:34:34,008 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 39 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:34:34,586 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:34:34,591 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:34:34,592 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:34:34,674 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:34:34,674 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1131 ms
+2022-04-13 12:34:34,695 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:34:34,794 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:34:34,801 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:34:34,955 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:34:34,992 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:34:35,098 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:34:35,180 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:34:35,678 WARN  o.h.engine.jdbc.spi.SqlExceptionHelper             logExceptions: SQL Error: 90121, SQLState: 90121
+2022-04-13 12:34:35,678 ERROR o.h.engine.jdbc.spi.SqlExceptionHelper             logExceptions: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
+2022-04-13 12:34:35,679 WARN  o.h.engine.jdbc.spi.SqlExceptionHelper             logExceptions: SQL Error: 90121, SQLState: 90121
+2022-04-13 12:34:35,680 ERROR o.h.engine.jdbc.spi.SqlExceptionHelper             logExceptions: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
+2022-04-13 12:34:35,682 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to release JDBC Connection used for DDL execution
+2022-04-13 12:34:35,683 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext refresh: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to release JDBC Connection used for DDL execution
+2022-04-13 12:34:35,684 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:34:35,685 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:36:46,991 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 21624 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:36:46,992 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:36:47,026 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:36:47,026 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:36:47,026 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:36:47,026 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:36:47,430 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:36:47,475 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 38 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:36:48,054 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:36:48,060 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:36:48,061 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:36:48,150 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:36:48,151 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1124 ms
+2022-04-13 12:36:48,172 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:36:48,268 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:36:48,276 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:36:48,446 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:36:48,481 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:36:48,584 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:36:48,665 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:36:49,198 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:36:49,205 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:36:49,570 INFO  org.openqa.selenium.Capabilities                   chrome: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+2022-04-13 12:36:50,431 WARN  org.openqa.selenium.json.JsonOutput                lambda$new$14: Attempt to convert JsonElement from GSON. This functionality is deprecated. Diagnostic stacktrace follows
+org.openqa.selenium.json.JsonException: Stack trace to determine cause of warning
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: ChromeDriver
+	at org.openqa.selenium.json.JsonOutput.lambda$new$14(JsonOutput.java:145)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:330)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:155)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at java.util.TreeMap.forEach(TreeMap.java:1005)
+	at java.util.Collections$UnmodifiableMap.forEach(Collections.java:1507)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:255)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:100)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:94)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:178)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:167)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:124)
+	at com.internal.mobileSearch.AppConfig.webDriver(AppConfig.java:18)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$a9165f1.CGLIB$webDriver$0(<generated>)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$a9165f1$$FastClassBySpringCGLIB$$87cb416d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$a9165f1.webDriver(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-13 12:36:51,047 INFO  o.o.selenium.remote.ProtocolHandshake              createSession: Detected dialect: W3C
+2022-04-13 12:36:51,382 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration openEntityManagerInViewInterceptor: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-13 12:36:51,614 INFO  o.s.b.d.a.OptionalLiveReloadServer                 startServer: LiveReload server is running on port 35729
+2022-04-13 12:36:51,638 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            start: Tomcat started on port(s): 8099 (http) with context path ''
+2022-04-13 12:36:51,647 INFO  c.i.mobileSearch.MobileSearchApplication           logStarted: Started MobileSearchApplication in 4.969 seconds (JVM running for 5.784)
+2022-04-13 12:37:29,435 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-13 12:37:29,435 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Initializing Servlet 'dispatcherServlet'
+2022-04-13 12:37:29,436 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Completed initialization in 1 ms
+2022-04-13 12:43:54,371 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:43:54,375 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:43:54,376 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:43:58,670 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 26668 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:43:58,672 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:43:58,707 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:43:58,707 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:43:58,707 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:43:58,707 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:43:59,103 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:43:59,156 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:43:59,787 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:43:59,793 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:43:59,794 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:43:59,884 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:43:59,885 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1177 ms
+2022-04-13 12:43:59,906 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:44:00,006 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:44:00,013 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:44:00,185 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:44:00,220 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:44:00,327 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:44:00,411 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:44:00,946 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:44:00,953 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:44:01,318 INFO  org.openqa.selenium.Capabilities                   chrome: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+2022-04-13 12:44:02,192 WARN  org.openqa.selenium.json.JsonOutput                lambda$new$14: Attempt to convert JsonElement from GSON. This functionality is deprecated. Diagnostic stacktrace follows
+org.openqa.selenium.json.JsonException: Stack trace to determine cause of warning
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: ChromeDriver
+	at org.openqa.selenium.json.JsonOutput.lambda$new$14(JsonOutput.java:145)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:330)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:155)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at java.util.TreeMap.forEach(TreeMap.java:1005)
+	at java.util.Collections$UnmodifiableMap.forEach(Collections.java:1507)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:255)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:100)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:94)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:178)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:167)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:124)
+	at com.internal.mobileSearch.AppConfig.webDriver(AppConfig.java:18)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$78a019ca.CGLIB$webDriver$0(<generated>)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$78a019ca$$FastClassBySpringCGLIB$$8356f12c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$78a019ca.webDriver(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-13 12:44:02,819 INFO  o.o.selenium.remote.ProtocolHandshake              createSession: Detected dialect: W3C
+2022-04-13 12:44:03,159 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration openEntityManagerInViewInterceptor: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-13 12:44:03,384 INFO  o.s.b.d.a.OptionalLiveReloadServer                 startServer: LiveReload server is running on port 35729
+2022-04-13 12:44:03,408 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            start: Tomcat started on port(s): 8099 (http) with context path ''
+2022-04-13 12:44:03,417 INFO  c.i.mobileSearch.MobileSearchApplication           logStarted: Started MobileSearchApplication in 5.076 seconds (JVM running for 5.859)
+2022-04-13 12:44:19,927 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-13 12:44:19,927 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Initializing Servlet 'dispatcherServlet'
+2022-04-13 12:44:19,928 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Completed initialization in 1 ms
+2022-04-13 12:45:06,895 ERROR o.a.c.c.C.[.[.[/].[dispatcherServlet]              log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: null value in entry: url=null] with root cause
+java.lang.NullPointerException: null value in entry: url=null
+	at com.google.common.collect.CollectPreconditions.checkEntryNotNull(CollectPreconditions.java:34)
+	at com.google.common.collect.SingletonImmutableBiMap.<init>(SingletonImmutableBiMap.java:42)
+	at com.google.common.collect.ImmutableBiMap.of(ImmutableBiMap.java:73)
+	at com.google.common.collect.ImmutableMap.of(ImmutableMap.java:123)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:277)
+	at com.internal.mobileSearch.backend.util.CrawlForMobile.getMobileData(CrawlForMobile.java:48)
+	at com.internal.mobileSearch.frontend.controller.BrandController.addsBrand(BrandController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2022-04-13 12:46:15,352 ERROR o.a.c.c.C.[.[.[/].[dispatcherServlet]              log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: null value in entry: url=null] with root cause
+java.lang.NullPointerException: null value in entry: url=null
+	at com.google.common.collect.CollectPreconditions.checkEntryNotNull(CollectPreconditions.java:34)
+	at com.google.common.collect.SingletonImmutableBiMap.<init>(SingletonImmutableBiMap.java:42)
+	at com.google.common.collect.ImmutableBiMap.of(ImmutableBiMap.java:73)
+	at com.google.common.collect.ImmutableMap.of(ImmutableMap.java:123)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:277)
+	at com.internal.mobileSearch.backend.util.CrawlForMobile.getMobileData(CrawlForMobile.java:48)
+	at com.internal.mobileSearch.frontend.controller.BrandController.addsBrand(BrandController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2022-04-13 12:47:03,215 ERROR o.a.c.c.C.[.[.[/].[dispatcherServlet]              log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: null value in entry: url=null] with root cause
+java.lang.NullPointerException: null value in entry: url=null
+	at com.google.common.collect.CollectPreconditions.checkEntryNotNull(CollectPreconditions.java:34)
+	at com.google.common.collect.SingletonImmutableBiMap.<init>(SingletonImmutableBiMap.java:42)
+	at com.google.common.collect.ImmutableBiMap.of(ImmutableBiMap.java:73)
+	at com.google.common.collect.ImmutableMap.of(ImmutableMap.java:123)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:277)
+	at com.internal.mobileSearch.backend.util.CrawlForMobile.getMobileData(CrawlForMobile.java:48)
+	at com.internal.mobileSearch.frontend.controller.BrandController.addsBrand(BrandController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2022-04-13 12:47:26,377 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:47:26,380 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:47:26,381 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:47:29,116 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 28988 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:47:29,118 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:47:29,153 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:47:29,153 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:47:29,153 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:47:29,153 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:47:29,570 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:47:29,622 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 44 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:47:30,195 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:47:30,202 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:47:30,202 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:47:30,289 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:47:30,289 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1135 ms
+2022-04-13 12:47:30,313 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:47:30,414 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:47:30,422 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:47:30,581 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:47:30,618 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:47:30,722 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:47:30,803 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:47:31,345 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:47:31,352 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:47:31,711 INFO  org.openqa.selenium.Capabilities                   chrome: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+2022-04-13 12:47:32,621 WARN  org.openqa.selenium.json.JsonOutput                lambda$new$14: Attempt to convert JsonElement from GSON. This functionality is deprecated. Diagnostic stacktrace follows
+org.openqa.selenium.json.JsonException: Stack trace to determine cause of warning
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: ChromeDriver
+	at org.openqa.selenium.json.JsonOutput.lambda$new$14(JsonOutput.java:145)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:330)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:155)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at java.util.TreeMap.forEach(TreeMap.java:1005)
+	at java.util.Collections$UnmodifiableMap.forEach(Collections.java:1507)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:255)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:100)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:94)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:178)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:167)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:124)
+	at com.internal.mobileSearch.AppConfig.webDriver(AppConfig.java:18)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$963502.CGLIB$webDriver$0(<generated>)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$963502$$FastClassBySpringCGLIB$$e0fe6c17.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$963502.webDriver(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-13 12:47:33,233 INFO  o.o.selenium.remote.ProtocolHandshake              createSession: Detected dialect: W3C
+2022-04-13 12:47:33,543 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration openEntityManagerInViewInterceptor: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-13 12:47:33,767 INFO  o.s.b.d.a.OptionalLiveReloadServer                 startServer: LiveReload server is running on port 35729
+2022-04-13 12:47:33,791 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            start: Tomcat started on port(s): 8099 (http) with context path ''
+2022-04-13 12:47:33,800 INFO  c.i.mobileSearch.MobileSearchApplication           logStarted: Started MobileSearchApplication in 5.014 seconds (JVM running for 5.883)
+2022-04-13 12:47:36,382 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-13 12:47:36,382 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Initializing Servlet 'dispatcherServlet'
+2022-04-13 12:47:36,384 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Completed initialization in 1 ms
+2022-04-13 12:48:34,279 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:48:34,282 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:48:34,282 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:49:55,545 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 24652 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:49:55,546 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:49:55,580 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:49:55,580 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:49:55,581 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:49:55,581 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:49:55,998 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:49:56,044 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 39 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:49:56,636 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:49:56,642 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:49:56,642 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:49:56,730 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:49:56,731 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1150 ms
+2022-04-13 12:49:56,751 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:49:56,854 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:49:56,862 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:49:57,019 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:49:57,056 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:49:57,167 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:49:57,251 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:49:57,820 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:49:57,827 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:49:58,190 INFO  org.openqa.selenium.Capabilities                   chrome: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+2022-04-13 12:49:59,081 WARN  org.openqa.selenium.json.JsonOutput                lambda$new$14: Attempt to convert JsonElement from GSON. This functionality is deprecated. Diagnostic stacktrace follows
+org.openqa.selenium.json.JsonException: Stack trace to determine cause of warning
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: ChromeDriver
+	at org.openqa.selenium.json.JsonOutput.lambda$new$14(JsonOutput.java:145)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:330)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:155)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at java.util.TreeMap.forEach(TreeMap.java:1005)
+	at java.util.Collections$UnmodifiableMap.forEach(Collections.java:1507)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:255)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:100)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:94)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:178)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:167)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:124)
+	at com.internal.mobileSearch.AppConfig.webDriver(AppConfig.java:18)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$52fa7dc0.CGLIB$webDriver$0(<generated>)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$52fa7dc0$$FastClassBySpringCGLIB$$816d4a28.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$52fa7dc0.webDriver(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-13 12:49:59,705 INFO  o.o.selenium.remote.ProtocolHandshake              createSession: Detected dialect: W3C
+2022-04-13 12:50:00,009 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration openEntityManagerInViewInterceptor: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-13 12:50:00,244 INFO  o.s.b.d.a.OptionalLiveReloadServer                 startServer: LiveReload server is running on port 35729
+2022-04-13 12:50:00,268 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            start: Tomcat started on port(s): 8099 (http) with context path ''
+2022-04-13 12:50:00,277 INFO  c.i.mobileSearch.MobileSearchApplication           logStarted: Started MobileSearchApplication in 5.037 seconds (JVM running for 5.832)
+2022-04-13 12:50:01,781 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-13 12:50:01,781 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Initializing Servlet 'dispatcherServlet'
+2022-04-13 12:50:01,782 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Completed initialization in 1 ms
+2022-04-13 12:52:16,795 WARN  com.zaxxer.hikari.pool.HikariPool                  run: HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m19s90ms575µs700ns).
+2022-04-13 12:52:21,291 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:52:21,294 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:52:21,295 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
+2022-04-13 12:52:23,971 INFO  c.i.mobileSearch.MobileSearchApplication           logStarting: Starting MobileSearchApplication using Java 1.8.0_301 on DESKTOP-14PMRRE with PID 34560 (C:\Users\Ali\Desktop\JavaProjects\mobileSearch\target\classes started by Ali in C:\Users\Ali\Desktop\JavaProjects\mobileSearch)
+2022-04-13 12:52:23,972 INFO  c.i.mobileSearch.MobileSearchApplication           logStartupProfileInfo: No active profile set, falling back to 1 default profile: "default"
+2022-04-13 12:52:24,005 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/serializer/2.7.2/xml-apis.jar
+2022-04-13 12:52:24,005 INFO  o.s.boot.devtools.restart.ChangeableUrls           logTo: The Class-Path manifest attribute in C:\Users\Ali\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar referenced one or more files that do not exist: file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xercesImpl.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/xml-apis.jar,file:/C:/Users/Ali/.m2/repository/xalan/xalan/2.7.2/serializer.jar
+2022-04-13 12:52:24,005 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-13 12:52:24,005 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    logTo: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-13 12:52:24,434 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-13 12:52:24,483 INFO  o.s.d.r.c.RepositoryConfigurationDelegate          registerRepositoriesIn: Finished Spring Data repository scanning in 42 ms. Found 4 JPA repository interfaces.
+2022-04-13 12:52:25,100 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            initialize: Tomcat initialized with port(s): 8099 (http)
+2022-04-13 12:52:25,106 INFO  org.apache.catalina.core.StandardService           log: Starting service [Tomcat]
+2022-04-13 12:52:25,106 INFO  org.apache.catalina.core.StandardEngine            log: Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-13 12:52:25,191 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring embedded WebApplicationContext
+2022-04-13 12:52:25,191 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1185 ms
+2022-04-13 12:52:25,212 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Starting...
+2022-04-13 12:52:25,318 INFO  com.zaxxer.hikari.HikariDataSource                 getConnection: HikariPool-1 - Start completed.
+2022-04-13 12:52:25,326 INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              logDataSources: H2 console available at '/h2'. Database available at 'jdbc:h2:file:./mobileSearch'
+2022-04-13 12:52:25,481 INFO  o.hibernate.jpa.internal.util.LogHelper            logPersistenceUnitInformation: HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-13 12:52:25,524 INFO  org.hibernate.Version                              logVersion: HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-13 12:52:25,634 INFO  org.hibernate.annotations.common.Version           <clinit>: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-13 12:52:25,723 INFO  org.hibernate.dialect.Dialect                      <init>: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-13 12:52:26,260 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 initiateService: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-13 12:52:26,267 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     buildNativeEntityManagerFactory: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:52:26,658 INFO  org.openqa.selenium.Capabilities                   chrome: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+2022-04-13 12:52:27,591 WARN  org.openqa.selenium.json.JsonOutput                lambda$new$14: Attempt to convert JsonElement from GSON. This functionality is deprecated. Diagnostic stacktrace follows
+org.openqa.selenium.json.JsonException: Stack trace to determine cause of warning
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-14PMRRE', ip: '172.20.8.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: ChromeDriver
+	at org.openqa.selenium.json.JsonOutput.lambda$new$14(JsonOutput.java:145)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:330)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:155)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at java.util.TreeMap.forEach(TreeMap.java:1005)
+	at java.util.Collections$UnmodifiableMap.forEach(Collections.java:1507)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:177)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:176)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:264)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:255)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:100)
+	at org.openqa.selenium.remote.NewSessionPayload.create(NewSessionPayload.java:94)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:178)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:167)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:124)
+	at com.internal.mobileSearch.AppConfig.webDriver(AppConfig.java:18)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$3e1d2c34.CGLIB$webDriver$0(<generated>)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$3e1d2c34$$FastClassBySpringCGLIB$$e13fdc8d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.internal.mobileSearch.AppConfig$$EnhancerBySpringCGLIB$$3e1d2c34.webDriver(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.internal.mobileSearch.MobileSearchApplication.main(MobileSearchApplication.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-13 12:52:28,202 INFO  o.o.selenium.remote.ProtocolHandshake              createSession: Detected dialect: W3C
+2022-04-13 12:52:28,488 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration openEntityManagerInViewInterceptor: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-13 12:52:28,718 INFO  o.s.b.d.a.OptionalLiveReloadServer                 startServer: LiveReload server is running on port 35729
+2022-04-13 12:52:28,745 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            start: Tomcat started on port(s): 8099 (http) with context path ''
+2022-04-13 12:52:28,754 INFO  c.i.mobileSearch.MobileSearchApplication           logStarted: Started MobileSearchApplication in 5.1 seconds (JVM running for 5.875)
+2022-04-13 12:52:30,473 INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-13 12:52:30,473 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Initializing Servlet 'dispatcherServlet'
+2022-04-13 12:52:30,474 INFO  o.s.web.servlet.DispatcherServlet                  initServletBean: Completed initialization in 1 ms
+2022-04-13 12:54:56,760 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     destroy: Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-13 12:54:56,762 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown initiated...
+2022-04-13 12:54:56,763 INFO  com.zaxxer.hikari.HikariDataSource                 close: HikariPool-1 - Shutdown completed.
