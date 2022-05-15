@@ -1,6 +1,7 @@
 package com.internal.mobileSearch.backend.util;
 
 import com.internal.mobileSearch.backend.service.MobileDetailsService;
+import com.internal.mobileSearch.backend.service.MobileService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class CrawlForDetails {
@@ -21,6 +25,9 @@ public class CrawlForDetails {
 
     @Autowired
     private MobileDetailsService mobileDetailsService;
+
+    @Autowired
+    private MobileService mobileService;
 
     @Value("${gsm.arena.url}")
     private String gsmArenaUrl;
@@ -61,7 +68,8 @@ public class CrawlForDetails {
     @Value("${gsm.arena.spec.table.data}")
     private String specTableData;
 
-    public boolean getMobileDetails(String mobileName,String brandName) {
+    public boolean getMobileDetails(String mobileName, String brandName) {
+        Map<String, String> mobileDetailsMap = new HashMap<>();
         try {
             driver.get(gsmArenaUrl);
             WebElement searchInput = driver.findElement(By.name(searchBar));
@@ -77,15 +85,15 @@ public class CrawlForDetails {
             WebElement mobileDetails = driver.findElement(By.cssSelector(specList));
             List<WebElement> specs = mobileDetails.findElements(By.tagName(specTable));
             for (WebElement spec : specs) {
+                String microData = "";
                 WebElement tbody = spec.findElement(By.tagName(specTableBody));
                 WebElement tr = tbody.findElement(By.tagName(specTableRow));
                 WebElement th = tr.findElement(By.tagName(specTableHeader));
-                System.out.println(th.getText() + " : ");
                 List<WebElement> tableData = tr.findElements(By.tagName(specTableData));
                 for (WebElement data : tableData) {
-                    System.out.printf(data.getText() + ",");
+                    microData = microData + "," + (data.getText());
                 }
-                LOGGER.error("Selenium Failed");
+                mobileDetailsMap.put(th.getText(), microData);
             }
             Thread.sleep(20000);
         } catch (Exception e) {
@@ -98,10 +106,109 @@ public class CrawlForDetails {
                 return false;
             }
         }
+        FillMobileDetails(mobileDetailsMap, mobileName);
         return true;
     }
 
-    public void FillMobileDetails(){
-        //todo Kinda Tricky
+    public void FillMobileDetails(Map<String, String> mobileDetailsMap, String mobileName) {
+        String network = "";
+        String launch = "";
+        String display = "";
+        String platform = "";
+        String memory = "";
+        String mainCamera = "";
+        String selfieCamera = "";
+        String sound = "";
+        String comms = "";
+        String features = "";
+        String battery = "";
+        String misc = "";
+        String tests = "";
+        String body = "";
+        for (Map.Entry<String, String> entry : mobileDetailsMap.entrySet()) {
+            if (entry.getValue().length()<255){
+                switch (entry.getKey()) {
+                    case "NETWORK": {
+                        network = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "LAUNCH": {
+                        launch = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "DISPLAY": {
+                        display = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "PLATFORM": {
+                        platform = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "MEMORY": {
+                        memory = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "MAIN CAMERA": {
+                        mainCamera = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "SELFIE CAMERA": {
+                        selfieCamera = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "SOUND": {
+                        sound = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "COMMS": {
+                        comms = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "FEATURES": {
+                        features = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "BATTERY": {
+                        battery = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "MISC": {
+                        misc = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "TESTS": {
+                        tests = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    case "BODY": {
+                        body = entry.getValue();
+                        LOGGER.info("Information Added: " + entry.getKey() + entry.getValue());
+                        break;
+                    }
+                    default: {
+                        LOGGER.error("Information Malfunction: " + entry.getKey());
+                        break;
+                    }
+                }
+            }else {
+                LOGGER.error(entry.getKey()+" , "+entry.getValue().length());
+            }
+
+        }
+        mobileDetailsService.addMobileDetails(mobileService.getMobile(mobileName), battery, body, comms, display, features, launch, mainCamera, misc, memory, network, platform, sound, tests, selfieCamera);
     }
 }
+//todo Longer Than 255 Fields
