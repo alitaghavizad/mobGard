@@ -1,5 +1,4 @@
 HELP.md
-src/main/java/com/internal/mobileSearch/MobileSearchApplication.java
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
