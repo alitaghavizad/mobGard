@@ -96,4 +96,8 @@ public class CrawlForDetails {
         }
         return true;
     }
+
+    public void FillMobileDetails(){
+        //todo Kinda Tricky
+    }
 }

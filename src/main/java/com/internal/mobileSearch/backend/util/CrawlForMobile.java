@@ -1,5 +1,7 @@
 package com.internal.mobileSearch.backend.util;
 
+import com.internal.mobileSearch.backend.da.model.Mobile;
+import com.internal.mobileSearch.backend.service.BrandService;
 import com.internal.mobileSearch.backend.service.MobileService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +21,9 @@ public class CrawlForMobile {
 
     @Autowired
     private MobileService mobileService;
+
+    @Autowired
+    private BrandService brandService;
 
     @Value("${mobile.ir.phones.grid}")
     private String phoneGrid;
@@ -59,12 +64,33 @@ public class CrawlForMobile {
                         allMobNames.put(mobName.getText(), entry.getKey());
                         WebElement mobPrice = driver.findElement(By.tagName(mobilePriceTag));
                         System.out.println("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + mobPrice.getText());
+                        fillMobileData(mobName.getText(),mobPrice.getText(),entry.getKey());
                     }
                 }
+                removeOldMobileData(allMobNames);
             } catch (Exception e) {
                 System.out.println("\n");
             }
         }
         return true;
     }
+
+    public void fillMobileData(String mobileName,String avgPrice,String brandName){
+        if (!mobileService.mobileExists(mobileName)){
+            mobileService.addMobile(mobileName,avgPrice,brandService.getBrand(brandName));
+        }else{
+            mobileService.updateMobileAvgPrice(mobileName,avgPrice);
+        }
+    }
+
+    public void removeOldMobileData(Map<String,String > allMobNames){
+        List<Mobile> allMobileData=mobileService.getAllMobileData();
+        for (Mobile mobile:allMobileData){
+            if (!allMobNames.containsKey(mobile.getMobileName())){
+                mobileService.updateMobileStatus(mobile.getMobileName(),0);
+            }
+        }
+    }
 }
+//todo add try catch to the methods
+//todo status Enum

@@ -92,6 +92,11 @@ public class MobileService {
     }
 
     @Transactional
+    public List<Mobile> getAllMobileData(){
+        return mobileRepository.findAll();
+    }
+
+    @Transactional
     public boolean updateMobile(String mobileNameOld, String mobileNameNew, String avgPrice, Brand brand,
                                 MobileDetails mobileDetails, List<MobilePrice> mobilePrices,int status) {
         if (mobileExists(mobileNameOld)) {
@@ -116,4 +121,45 @@ public class MobileService {
             return false;
         }
     }
+
+    @Transactional
+    public boolean updateMobileAvgPrice(String mobileName, String avgPrice) {
+        if (mobileExists(mobileName)) {
+            Mobile mobile = getMobile(mobileName);
+            mobile.setMobileAvgPrice(avgPrice);
+            mobile.setLastUpdateDate(new Date());
+            try {
+                mobileRepository.save(mobile);
+                LOGGER.info("Mobile updated To : "+ avgPrice);
+                return true;
+            }catch (Exception e){
+                LOGGER.error("Failed To Communicate With DataBase(updateMobile)"+mobileName);
+                return false;
+            }
+        } else {
+            LOGGER.warn("Mobile Does Not Exist: "+mobileName);
+            return false;
+        }
+    }
+
+    @Transactional
+    public boolean updateMobileStatus(String mobileName, int status) {
+        if (mobileExists(mobileName)) {
+            Mobile mobile = getMobile(mobileName);
+            mobile.setStatus(status);
+            mobile.setLastUpdateDate(new Date());
+            try {
+                mobileRepository.save(mobile);
+                LOGGER.info("Mobile updated To : "+ status);
+                return true;
+            }catch (Exception e){
+                LOGGER.error("Failed To Communicate With DataBase(updateMobile)"+mobileName);
+                return false;
+            }
+        } else {
+            LOGGER.warn("Mobile Does Not Exist: "+mobileName);
+            return false;
+        }
+    }
+
 }

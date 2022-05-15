@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class BrandService {
@@ -84,6 +85,11 @@ public class BrandService {
             LOGGER.warn("Brand Does Not Exist: "+brandName);
             return null;
         }
+    }
+
+    @Transactional
+    public List<Brand> getAllBrands(){
+        return brandRepository.findAll();
     }
 
     @Transactional

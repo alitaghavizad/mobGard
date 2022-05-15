@@ -1,5 +1,6 @@
 package com.internal.mobileSearch.backend.util;
 
+import com.internal.mobileSearch.backend.da.model.Brand;
 import com.internal.mobileSearch.backend.service.BrandService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,7 +38,7 @@ public class CrawlForBrand {
     @Value("${mobile.ir.brands.url}")
     private String url;
 
-       public boolean getBrand(){
+    public boolean getBrand() {
         driver.get(webPage);
 
         //Get All Brands
@@ -51,15 +52,29 @@ public class CrawlForBrand {
                 brandUrls.put(spans.get(1).getText(), a.getAttribute(url));
             }
         }
-           for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
-               System.out.println(entry.getKey()+"   "+entry.getValue());
-           }
+        fillBrandInfo(brandUrls);
         return true;
     }
 
-    //todo get ALLL brands
+    private void fillBrandInfo(Map<String, String> brandUrls) {
+        for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
+            if (!brandService.brandExists(entry.getKey())) {
+                brandService.addBrand(entry.getKey(), entry.getValue());
+            } else if (!brandService.getBrand(entry.getKey()).getBrandUrl().equals(entry.getValue())) {
+                brandService.updateBrand(entry.getKey(), entry.getKey(), entry.getValue(), 1);
+            }
+        }
+    }
 
-    private void fillBrandInfo(Map<String ,String> brandMap){
-           //todo iterate map
+    private void removeOldBrands(Map<String, String> brandUrls){
+        List<Brand> brands=brandService.getAllBrands();
+        for (Brand brand:brands){
+            if (!brandUrls.containsKey(brand.getBrandName()) && !brandUrls.containsValue(brand.getBrandUrl())) {
+                brandService.updateBrand(brand.getBrandName(),brand.getBrandName(),brand.getBrandUrl(),0);
+            }
+        }
     }
 }
+//todo add try catch to the methods
+//todo status Enum
+//todo check if brand has mobs
