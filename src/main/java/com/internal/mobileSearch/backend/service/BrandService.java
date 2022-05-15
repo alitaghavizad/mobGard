@@ -1,6 +1,7 @@
 package com.internal.mobileSearch.backend.service;
 
 import com.internal.mobileSearch.backend.da.model.Brand;
+import com.internal.mobileSearch.backend.da.model.BrandStatus;
 import com.internal.mobileSearch.backend.da.repository.BrandRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ public class BrandService {
             Brand brand=new Brand();
             brand.setBrandUrl(brandUrl);
             brand.setBrandName(brandName);
-            brand.setStatus(1);
+            brand.setStatus(BrandStatus.EXISTING.getStatus());
             brand.setInsertionDate(new Date());
             brand.setLastUpdateDate(new Date());
             try {
@@ -89,7 +90,12 @@ public class BrandService {
 
     @Transactional
     public List<Brand> getAllBrands(){
-        return brandRepository.findAll();
+        try {
+            return brandRepository.findAll();
+        }catch (Exception e){
+            LOGGER.error("DataBase Connection Failed");
+            return null;
+        }
     }
 
     @Transactional

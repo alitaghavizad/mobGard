@@ -1,11 +1,14 @@
 package com.internal.mobileSearch.backend.util;
 
 import com.internal.mobileSearch.backend.da.model.Mobile;
+import com.internal.mobileSearch.backend.da.model.MobileStatus;
 import com.internal.mobileSearch.backend.service.BrandService;
 import com.internal.mobileSearch.backend.service.MobileService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -16,6 +19,8 @@ import java.util.Map;
 
 @Component
 public class CrawlForMobile {
+    private final Logger LOGGER = LoggerFactory.getLogger(CrawlForMobile.class);
+
     @Autowired
     private WebDriver driver;
 
@@ -50,47 +55,56 @@ public class CrawlForMobile {
     private String mobilePriceTag;
 
 
-    public boolean getMobileData(Map<String ,String > brandUrls) {
+    public boolean getMobileData(Map<String, String> brandUrls) {
         Map<String, String> allMobNames = new HashMap<>();
         for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
-            driver.get(entry.getValue());
             try {
+                driver.get(entry.getValue());
                 WebElement phonesGrid = driver.findElement(By.className(phoneGrid));
                 List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
                 for (WebElement div : mobs) {
-                    if (div.getAttribute(cssClass).equals(phoneAvailableClass1+" "+phoneAvailableClass2)) {
+                    if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
                         WebElement h4 = div.findElement(By.tagName(mobileTag));
                         WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
                         allMobNames.put(mobName.getText(), entry.getKey());
                         WebElement mobPrice = driver.findElement(By.tagName(mobilePriceTag));
-                        System.out.println("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + mobPrice.getText());
-                        fillMobileData(mobName.getText(),mobPrice.getText(),entry.getKey());
+                        LOGGER.info("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + mobPrice.getText());
+                        fillMobileData(mobName.getText(), mobPrice.getText(), entry.getKey());
                     }
                 }
                 removeOldMobileData(allMobNames);
             } catch (Exception e) {
-                System.out.println("\n");
+                LOGGER.error("Selenium Failed");
             }
         }
         return true;
     }
 
-    public void fillMobileData(String mobileName,String avgPrice,String brandName){
-        if (!mobileService.mobileExists(mobileName)){
-            mobileService.addMobile(mobileName,avgPrice,brandService.getBrand(brandName));
-        }else{
-            mobileService.updateMobileAvgPrice(mobileName,avgPrice);
+    public void fillMobileData(String mobileName, String avgPrice, String brandName) {
+        try {
+            if (!mobileService.mobileExists(mobileName)) {
+                mobileService.addMobile(mobileName, avgPrice, brandService.getBrand(brandName));
+                LOGGER.info("Added New Mobile: " + mobileName);
+            } else {
+                mobileService.updateMobileAvgPrice(mobileName, avgPrice);
+                LOGGER.info("Updated Mobile Avg Price: " + mobileName);
+            }
+        } catch (Exception e) {
+            LOGGER.error("DataBase Connection Failed");
         }
     }
 
-    public void removeOldMobileData(Map<String,String > allMobNames){
-        List<Mobile> allMobileData=mobileService.getAllMobileData();
-        for (Mobile mobile:allMobileData){
-            if (!allMobNames.containsKey(mobile.getMobileName())){
-                mobileService.updateMobileStatus(mobile.getMobileName(),0);
+    public void removeOldMobileData(Map<String, String> allMobNames) {
+        try {
+            List<Mobile> allMobileData = mobileService.getAllMobileData();
+            for (Mobile mobile : allMobileData) {
+                if (!allMobNames.containsKey(mobile.getMobileName())) {
+                    mobileService.updateMobileStatus(mobile.getMobileName(), MobileStatus.INACTIVE.getStatus());
+                    LOGGER.info("Mobile: "+mobile.getMobileName()+" Status Has Been Updated To: "+ MobileStatus.INACTIVE.name());
+                }
             }
+        }catch (Exception e){
+            LOGGER.error("DataBase Connection Failed");
         }
     }
 }
-//todo add try catch to the methods
-//todo status Enum

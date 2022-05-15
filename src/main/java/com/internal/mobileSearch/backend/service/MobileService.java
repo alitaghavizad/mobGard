@@ -1,9 +1,6 @@
 package com.internal.mobileSearch.backend.service;
 
-import com.internal.mobileSearch.backend.da.model.Brand;
-import com.internal.mobileSearch.backend.da.model.Mobile;
-import com.internal.mobileSearch.backend.da.model.MobileDetails;
-import com.internal.mobileSearch.backend.da.model.MobilePrice;
+import com.internal.mobileSearch.backend.da.model.*;
 import com.internal.mobileSearch.backend.da.repository.MobileRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +27,7 @@ public class MobileService {
             mobile.setBrand(brand);
             mobile.setInsertionDate(new Date());
             mobile.setLastUpdateDate(new Date());
-            mobile.setStatus(1);
+            mobile.setStatus(MobileStatus.ACTIVE.getStatus());
             try {
                 mobileRepository.save(mobile);
                 LOGGER.info("Mobile:"+ mobileName+ "Saved In DataBase");
@@ -93,7 +90,12 @@ public class MobileService {
 
     @Transactional
     public List<Mobile> getAllMobileData(){
-        return mobileRepository.findAll();
+        try {
+            return mobileRepository.findAll();
+        }catch (Exception e){
+            LOGGER.error("DataBase Connection Failed");
+            return null;
+        }
     }
 
     @Transactional

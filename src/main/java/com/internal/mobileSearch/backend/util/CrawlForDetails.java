@@ -4,6 +4,8 @@ import com.internal.mobileSearch.backend.service.MobileDetailsService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -12,6 +14,8 @@ import java.util.List;
 
 @Component
 public class CrawlForDetails {
+    private final Logger LOGGER = LoggerFactory.getLogger(CrawlForDetails.class);
+
     @Autowired
     private WebDriver driver;
 
@@ -58,11 +62,11 @@ public class CrawlForDetails {
     private String specTableData;
 
     public boolean getMobileDetails(String mobileName,String brandName) {
-        driver.get(gsmArenaUrl);
-        WebElement searchInput = driver.findElement(By.name(searchBar));
-        searchInput.sendKeys(brandName + " " + mobileName);
-        searchInput.sendKeys("\n");
         try {
+            driver.get(gsmArenaUrl);
+            WebElement searchInput = driver.findElement(By.name(searchBar));
+            searchInput.sendKeys(brandName + " " + mobileName);
+            searchInput.sendKeys("\n");
             WebElement mobileLists = driver.findElement(By.className(mobilesLists));
             WebElement mobileList = mobileLists.findElement(By.tagName(mobilesList));
             List<WebElement> mobileTags = mobileList.findElements(By.tagName(mobileTag));
@@ -81,7 +85,7 @@ public class CrawlForDetails {
                 for (WebElement data : tableData) {
                     System.out.printf(data.getText() + ",");
                 }
-                System.out.println("");
+                LOGGER.error("Selenium Failed");
             }
             Thread.sleep(20000);
         } catch (Exception e) {
