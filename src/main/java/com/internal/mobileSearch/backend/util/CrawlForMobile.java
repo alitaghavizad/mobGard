@@ -5,6 +5,7 @@ import com.internal.mobileSearch.backend.da.model.Mobile;
 import com.internal.mobileSearch.backend.da.model.MobileStatus;
 import com.internal.mobileSearch.backend.service.BrandService;
 import com.internal.mobileSearch.backend.service.MobileService;
+import javafx.util.Pair;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,6 +57,12 @@ public class CrawlForMobile {
     @Value("${mobile.ir.mobile.price.tag}")
     private String mobilePriceTag;
 
+    @Value("${mobile.ir.mobile.url.tag}")
+    private String mobileUrlTagName;
+
+    @Value("${mobile.ir.mobile.url}")
+    private String mobileUrl;
+
     @Value("${mobile.ir.pagination.box}")
     private String paginationBoxClass;
 
@@ -72,21 +79,11 @@ public class CrawlForMobile {
         for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
             try {
                 List<String> pagesUrl = getAllOfMobilePagesUrlSelenium(brandUrls);
-                Map<String, Map<String, String>> mobileDetails = getMobileDataSelenium(pagesUrl);
+                Map<String, Pair<String ,String >> mobileDetails = getMobileDataSelenium(pagesUrl);
                 if (mobileDetails != null) {
-                    for (Map.Entry<String, Map<String, String>> entry1 : mobileDetails.entrySet()) {
-                        String price = "";
-                        String url = "";
-                        for (Map.Entry<String, String> entry2 : entry1.getValue().entrySet()) {
-                            switch (entry2.getKey()) {
-                                case "price":
-                                    price = entry2.getValue();
-                                    break;
-                                case "url":
-                                    url = entry2.getValue();
-                                    break;
-                            }
-                        }
+                    for (Map.Entry<String, Pair<String ,String >> entry1 : mobileDetails.entrySet()) {
+                        String price = entry1.getValue().getValue();
+                        String url = entry1.getValue().getKey();
                         fillMobileData(entry1.getKey(), price, url, entry.getKey());
                     }
                 } else {
@@ -120,8 +117,8 @@ public class CrawlForMobile {
         return pagesUrl;
     }
 
-    public Map<String, Map<String, String>> getMobileDataSelenium(List<String> pagesUrl) {
-        Map<String, Map<String, String>> mobilesNamesAndAvgPrices = new HashMap<>();
+    public Map<String, Pair<String ,String >> getMobileDataSelenium(List<String> pagesUrl) {
+        Map<String, Pair<String ,String >> mobilesNamesAndAvgPrices = new HashMap<>();
         List<String> allMobNames = new ArrayList<>();
         for (String url : pagesUrl) {
             driver.get(url);
@@ -129,10 +126,10 @@ public class CrawlForMobile {
             List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
             if (mobs.size() > 2) {
                 for (WebElement div : mobs) {
-                    Map<String, String> mobileAvgPriceAndUrl = new HashMap<>();
+
                     if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
                         WebElement h4 = div.findElement(By.tagName(mobileTag));
-                        WebElement mobileUrl = div.findElement(By.tagName("a"));
+                        WebElement mobileUrlTag = div.findElement(By.tagName(mobileUrlTagName));
                         WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
                         allMobNames.add(mobName.getText());
                         WebElement mobPrice = div.findElement(By.tagName(mobilePriceTag));
@@ -141,8 +138,7 @@ public class CrawlForMobile {
                         priceOfMobile = priceOfMobile.replace(",", "");
                         priceOfMobile = priceOfMobile.replace(" ", "");
 
-                        mobileAvgPriceAndUrl.put("url", mobileUrl.getAttribute("href"));
-                        mobileAvgPriceAndUrl.put("price", priceOfMobile);
+                        Pair<String ,String > mobileAvgPriceAndUrl=new Pair<>(mobileUrlTag.getAttribute(mobileUrl),priceOfMobile);
 
                         LOGGER.info("MobileName: " + mobName.getText() + ", PRICE: " + priceOfMobile);
                         mobilesNamesAndAvgPrices.put(mobName.getText(), mobileAvgPriceAndUrl);
