@@ -30,6 +30,9 @@ public class Mobile {
     @Column(name = "MOBILE_NAME")
     private String mobileName;
 
+    @Column(name = "MOBILE_URL")
+    private String mobileUrl;
+
     @Column(name = "MOBILE_AVG_PRICE")
     private long mobileAvgPrice;
 

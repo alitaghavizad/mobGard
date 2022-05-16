@@ -19,12 +19,13 @@ public class MobileService {
     private MobileRepository mobileRepository;
 
     @Transactional
-    public boolean addMobile(String mobileName, String avgPrice, Brand brand) {
+    public boolean addMobile(String mobileName, String avgPrice,String url, Brand brand) {
         if (!mobileExists(mobileName)) {
             Mobile mobile = new Mobile();
             mobile.setMobileName(mobileName);
             mobile.setMobileAvgPrice(Long.parseLong(avgPrice));
             mobile.setBrand(brand);
+            mobile.setMobileUrl(url);
             mobile.setInsertionDate(new Date());
             mobile.setLastUpdateDate(new Date());
             mobile.setStatus(MobileStatus.ACTIVE.getStatus());
@@ -100,7 +101,7 @@ public class MobileService {
 
     @Transactional
     public boolean updateMobile(String mobileNameOld, String mobileNameNew, String avgPrice, Brand brand,
-                                MobileDetails mobileDetails, List<MobilePrice> mobilePrices,int status) {
+                                MobileDetails mobileDetails, List<MobilePrice> mobilePrices,int status,String url) {
         if (mobileExists(mobileNameOld)) {
             Mobile mobile = getMobile(mobileNameOld);
             mobile.setMobileDetails(mobileDetails);
@@ -109,6 +110,7 @@ public class MobileService {
             mobile.setMobileAvgPrice(Long.parseLong(avgPrice));
             mobile.setBrand(brand);
             mobile.setStatus(status);
+            mobile.setMobileUrl(url);
             mobile.setLastUpdateDate(new Date());
             try {
                 mobileRepository.save(mobile);
@@ -125,10 +127,11 @@ public class MobileService {
     }
 
     @Transactional
-    public boolean updateMobileAvgPrice(String mobileName, String avgPrice) {
+    public boolean updateMobileAvgPriceAndUrl(String mobileName, String avgPrice,String url) {
         if (mobileExists(mobileName)) {
             Mobile mobile = getMobile(mobileName);
             mobile.setMobileAvgPrice(Long.parseLong(avgPrice));
+            mobile.setMobileUrl(url);
             mobile.setLastUpdateDate(new Date());
             try {
                 mobileRepository.save(mobile);

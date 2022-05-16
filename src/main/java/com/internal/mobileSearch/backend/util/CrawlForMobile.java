@@ -72,10 +72,22 @@ public class CrawlForMobile {
         for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
             try {
                 List<String> pagesUrl = getAllOfMobilePagesUrlSelenium(brandUrls);
-                Map<String, String> mobileDetails = getMobileDataSelenium(pagesUrl);
+                Map<String, Map<String, String>> mobileDetails = getMobileDataSelenium(pagesUrl);
                 if (mobileDetails != null) {
-                    for (Map.Entry<String, String> entry1 : mobileDetails.entrySet()) {
-                        fillMobileData(entry1.getKey(), entry1.getValue(), entry.getKey());
+                    for (Map.Entry<String, Map<String, String>> entry1 : mobileDetails.entrySet()) {
+                        String price = "";
+                        String url = "";
+                        for (Map.Entry<String, String> entry2 : entry1.getValue().entrySet()) {
+                            switch (entry2.getKey()) {
+                                case "price":
+                                    price = entry2.getValue();
+                                    break;
+                                case "url":
+                                    url = entry2.getValue();
+                                    break;
+                            }
+                        }
+                        fillMobileData(entry1.getKey(), price, url, entry.getKey());
                     }
                 } else {
                     brandService.updateBrandStatus(entry.getKey(), BrandStatus.INACTIVE.getStatus());
@@ -108,8 +120,8 @@ public class CrawlForMobile {
         return pagesUrl;
     }
 
-    public Map<String, String> getMobileDataSelenium(List<String> pagesUrl) {
-        Map<String, String> mobilesNamesAndAvgPrices = new HashMap<>();
+    public Map<String, Map<String, String>> getMobileDataSelenium(List<String> pagesUrl) {
+        Map<String, Map<String, String>> mobilesNamesAndAvgPrices = new HashMap<>();
         List<String> allMobNames = new ArrayList<>();
         for (String url : pagesUrl) {
             driver.get(url);
@@ -117,8 +129,10 @@ public class CrawlForMobile {
             List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
             if (mobs.size() > 2) {
                 for (WebElement div : mobs) {
+                    Map<String, String> mobileAvgPriceAndUrl = new HashMap<>();
                     if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
                         WebElement h4 = div.findElement(By.tagName(mobileTag));
+                        WebElement mobileUrl = div.findElement(By.tagName("a"));
                         WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
                         allMobNames.add(mobName.getText());
                         WebElement mobPrice = div.findElement(By.tagName(mobilePriceTag));
@@ -127,8 +141,11 @@ public class CrawlForMobile {
                         priceOfMobile = priceOfMobile.replace(",", "");
                         priceOfMobile = priceOfMobile.replace(" ", "");
 
+                        mobileAvgPriceAndUrl.put("url", mobileUrl.getAttribute("href"));
+                        mobileAvgPriceAndUrl.put("price", priceOfMobile);
+
                         LOGGER.info("MobileName: " + mobName.getText() + ", PRICE: " + priceOfMobile);
-                        mobilesNamesAndAvgPrices.put(mobName.getText(), priceOfMobile);
+                        mobilesNamesAndAvgPrices.put(mobName.getText(), mobileAvgPriceAndUrl);
                     }
                 }
             } else {
@@ -139,13 +156,13 @@ public class CrawlForMobile {
         return mobilesNamesAndAvgPrices;
     }
 
-    public void fillMobileData(String mobileName, String avgPrice, String brandName) {
+    public void fillMobileData(String mobileName, String avgPrice, String url, String brandName) {
         try {
             if (!mobileService.mobileExists(mobileName)) {
-                mobileService.addMobile(mobileName, avgPrice, brandService.getBrand(brandName));
+                mobileService.addMobile(mobileName, avgPrice, url, brandService.getBrand(brandName));
                 LOGGER.info("Added New Mobile: " + mobileName);
             } else {
-                mobileService.updateMobileAvgPrice(mobileName, avgPrice);
+                mobileService.updateMobileAvgPriceAndUrl(mobileName, avgPrice, url);
                 mobileService.updateMobileStatus(mobileName, MobileStatus.ACTIVE.getStatus());
                 LOGGER.info("Updated Mobile Avg Price: " + mobileName + " And Status To Active");
             }
