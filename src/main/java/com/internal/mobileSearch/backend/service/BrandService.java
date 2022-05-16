@@ -120,4 +120,24 @@ public class BrandService {
         }
     }
 
+    @Transactional
+    public boolean updateBrandStatus(String brandName,int status){
+        if (brandExists(brandName)){
+            Brand brand=getBrand(brandName);
+            brand.setLastUpdateDate(new Date());
+            brand.setStatus(status);
+            try {
+                brandRepository.save(brand);
+                LOGGER.info("Brand updated :"+brandName+" To "+ status);
+                return true;
+            }catch (Exception e){
+                LOGGER.error("Failed To Communicate With DataBase(updateBrand)"+brandName);
+                return false;
+            }
+        } else {
+            LOGGER.warn("Brand Does Not Exist: "+brandName);
+            return false;
+        }
+    }
+
 }

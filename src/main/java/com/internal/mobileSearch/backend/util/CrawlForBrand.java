@@ -96,4 +96,3 @@ public class CrawlForBrand {
 
     }
 }
-//todo check if brand has mobs

@@ -1,5 +1,6 @@
 package com.internal.mobileSearch.backend.util;
 
+import com.internal.mobileSearch.backend.da.model.BrandStatus;
 import com.internal.mobileSearch.backend.da.model.Mobile;
 import com.internal.mobileSearch.backend.da.model.MobileStatus;
 import com.internal.mobileSearch.backend.service.BrandService;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,25 +56,85 @@ public class CrawlForMobile {
     @Value("${mobile.ir.mobile.price.tag}")
     private String mobilePriceTag;
 
+    @Value("${mobile.ir.pagination.box}")
+    private String paginationBoxClass;
+
+    @Value("${mobile.ir.pagination}")
+    private String paginationClass;
+
+    @Value("${mobile.ir.pagination.anchor.tag}")
+    private String paginationAnchorTag;
+
+    @Value("${mobile.ir.pagination.url}")
+    private String paginationUrl;
+
 
     public boolean getMobileData(Map<String, String> brandUrls) {
         Map<String, String> allMobNames = new HashMap<>();
+        List<String> pagesUrl = new ArrayList<>();
         for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
             try {
                 driver.get(entry.getValue());
-                WebElement phonesGrid = driver.findElement(By.className(phoneGrid));
-                List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
-                for (WebElement div : mobs) {
-                    if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
-                        WebElement h4 = div.findElement(By.tagName(mobileTag));
-                        WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
-                        allMobNames.put(mobName.getText(), entry.getKey());
-                        WebElement mobPrice = driver.findElement(By.tagName(mobilePriceTag));
-                        LOGGER.info("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + mobPrice.getText());
-                        fillMobileData(mobName.getText(), mobPrice.getText(), entry.getKey());
+                try {
+                    WebElement paginationBox = driver.findElement(By.className(paginationBoxClass));
+                    WebElement pagination = paginationBox.findElement(By.className(paginationClass));
+                    List<WebElement> pages = pagination.findElements(By.tagName(paginationAnchorTag));
+                    for (WebElement webElement : pages) {
+                        pagesUrl.add(webElement.getAttribute(paginationUrl));
                     }
+                    pagesUrl.remove(pagesUrl.size()-1);
+                    pagesUrl.add(entry.getValue());
+                    for (String url : pagesUrl) {
+                        driver.get(url);
+                        WebElement phonesGrid = driver.findElement(By.className(phoneGrid));
+                        List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
+                        if (mobs.size() > 2) {
+                            for (WebElement div : mobs) {
+                                if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
+                                    WebElement h4 = div.findElement(By.tagName(mobileTag));
+                                    WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
+                                    allMobNames.put(mobName.getText(), entry.getKey());
+                                    WebElement mobPrice = div.findElement(By.tagName(mobilePriceTag));
+                                    String priceOfMobile=mobPrice.getText();
+                                    priceOfMobile=priceOfMobile.replace("تومان","");
+                                    priceOfMobile=priceOfMobile.replace(",","");
+                                    priceOfMobile=priceOfMobile.replace(" ","");
+
+                                    LOGGER.info("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + priceOfMobile);
+                                    fillMobileData(mobName.getText(), priceOfMobile, entry.getKey());
+                                }
+                            }
+                        } else {
+                            brandService.updateBrandStatus(entry.getKey(), BrandStatus.INACTIVE.getStatus());
+                        }
+                    }
+                    removeOldMobileData(allMobNames);
+                } catch (Exception e) {
+                    WebElement phonesGrid = driver.findElement(By.className(phoneGrid));
+                    List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
+                    if (mobs.size() > 2) {
+                        for (WebElement div : mobs) {
+                            if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
+                                WebElement h4 = div.findElement(By.tagName(mobileTag));
+                                WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
+                                allMobNames.put(mobName.getText(), entry.getKey());
+                                WebElement mobPrice = div.findElement(By.tagName(mobilePriceTag));
+                                String priceOfMobile=mobPrice.getText();
+                                priceOfMobile=priceOfMobile.replace("تومان","");
+                                priceOfMobile=priceOfMobile.replace(",","");
+                                priceOfMobile=priceOfMobile.replace(" ","");
+
+                                LOGGER.info("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + priceOfMobile);
+                                fillMobileData(mobName.getText(), priceOfMobile, entry.getKey());
+                            }
+                        }
+                    } else {
+                        brandService.updateBrandStatus(entry.getKey(), BrandStatus.INACTIVE.getStatus());
+                    }
+                    removeOldMobileData(allMobNames);
                 }
-                removeOldMobileData(allMobNames);
+
+
             } catch (Exception e) {
                 LOGGER.error("Selenium Failed");
             }
@@ -87,7 +149,8 @@ public class CrawlForMobile {
                 LOGGER.info("Added New Mobile: " + mobileName);
             } else {
                 mobileService.updateMobileAvgPrice(mobileName, avgPrice);
-                LOGGER.info("Updated Mobile Avg Price: " + mobileName);
+                mobileService.updateMobileStatus(mobileName, MobileStatus.ACTIVE.getStatus());
+                LOGGER.info("Updated Mobile Avg Price: " + mobileName+" And Status To Active");
             }
         } catch (Exception e) {
             LOGGER.error("DataBase Connection Failed");
@@ -100,10 +163,10 @@ public class CrawlForMobile {
             for (Mobile mobile : allMobileData) {
                 if (!allMobNames.containsKey(mobile.getMobileName())) {
                     mobileService.updateMobileStatus(mobile.getMobileName(), MobileStatus.INACTIVE.getStatus());
-                    LOGGER.info("Mobile: "+mobile.getMobileName()+" Status Has Been Updated To: "+ MobileStatus.INACTIVE.name());
+                    LOGGER.info("Mobile: " + mobile.getMobileName() + " Status Has Been Updated To: " + MobileStatus.INACTIVE.name());
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("DataBase Connection Failed");
         }
     }

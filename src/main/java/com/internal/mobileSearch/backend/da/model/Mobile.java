@@ -31,7 +31,7 @@ public class Mobile {
     private String mobileName;
 
     @Column(name = "MOBILE_AVG_PRICE")
-    private String mobileAvgPrice;
+    private long mobileAvgPrice;
 
     @Column(name = "STATUS")
     private int status;

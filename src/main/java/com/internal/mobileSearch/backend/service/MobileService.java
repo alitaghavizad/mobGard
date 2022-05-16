@@ -23,7 +23,7 @@ public class MobileService {
         if (!mobileExists(mobileName)) {
             Mobile mobile = new Mobile();
             mobile.setMobileName(mobileName);
-            mobile.setMobileAvgPrice(avgPrice);
+            mobile.setMobileAvgPrice(Long.parseLong(avgPrice));
             mobile.setBrand(brand);
             mobile.setInsertionDate(new Date());
             mobile.setLastUpdateDate(new Date());
@@ -106,7 +106,7 @@ public class MobileService {
             mobile.setMobileDetails(mobileDetails);
             mobile.setMobilePrice(mobilePrices);
             mobile.setMobileName(mobileNameNew);
-            mobile.setMobileAvgPrice(avgPrice);
+            mobile.setMobileAvgPrice(Long.parseLong(avgPrice));
             mobile.setBrand(brand);
             mobile.setStatus(status);
             mobile.setLastUpdateDate(new Date());
@@ -128,7 +128,7 @@ public class MobileService {
     public boolean updateMobileAvgPrice(String mobileName, String avgPrice) {
         if (mobileExists(mobileName)) {
             Mobile mobile = getMobile(mobileName);
-            mobile.setMobileAvgPrice(avgPrice);
+            mobile.setMobileAvgPrice(Long.parseLong(avgPrice));
             mobile.setLastUpdateDate(new Date());
             try {
                 mobileRepository.save(mobile);
