@@ -69,46 +69,58 @@ public class CrawlForDetails {
     private String specTableData;
 
     public boolean getMobileDetails(String mobileName, String brandName) {
+        Map<String ,String > mobileDetailsMap=getMobileDetailsSelenium(mobileName,brandName);
+        FillMobileDetails(mobileDetailsMap, mobileName);
+        return true;
+    }
+
+    public Map<String ,String > getMobileDetailsSelenium(String mobileName,String brandName){
         Map<String, String> mobileDetailsMap = new HashMap<>();
         try {
+            //go to gsm Arena
             driver.get(gsmArenaUrl);
+            //search for Mobile
             WebElement searchInput = driver.findElement(By.name(searchBar));
             searchInput.sendKeys(brandName + " " + mobileName);
             searchInput.sendKeys("\n");
+            //in the list of mobiles found Pick The first one
             WebElement mobileLists = driver.findElement(By.className(mobilesLists));
             WebElement mobileList = mobileLists.findElement(By.tagName(mobilesList));
             List<WebElement> mobileTags = mobileList.findElements(By.tagName(mobileTag));
             WebElement myMobile = mobileTags.get(0);//todo change to similar name
             WebElement myMobiles = myMobile.findElement(By.tagName(mobileAnchorTag));
             String myMobileUrl = myMobiles.getAttribute(mobileUrl);
+            //go to specified Mobile page
             driver.get(myMobileUrl);
             WebElement mobileDetails = driver.findElement(By.cssSelector(specList));
             List<WebElement> specs = mobileDetails.findElements(By.tagName(specTable));
+            //iterate the list of mobile specs
             for (WebElement spec : specs) {
                 String microData = "";
                 WebElement tbody = spec.findElement(By.tagName(specTableBody));
                 WebElement tr = tbody.findElement(By.tagName(specTableRow));
                 WebElement th = tr.findElement(By.tagName(specTableHeader));
                 List<WebElement> tableData = tr.findElements(By.tagName(specTableData));
+                //iterate the information for each spec
                 for (WebElement data : tableData) {
                     microData = microData + "," + (data.getText());
                 }
                 mobileDetailsMap.put(th.getText(), microData);
             }
             Thread.sleep(20000);
+            return mobileDetailsMap;
         } catch (Exception e) {
             System.out.println("!!!Warning: " + mobileName);
             try {
                 Thread.sleep(20000);
-                return false;
+                return mobileDetailsMap;
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
-                return false;
+                return null;
             }
         }
-        FillMobileDetails(mobileDetailsMap, mobileName);
-        return true;
     }
+
 
     public void FillMobileDetails(Map<String, String> mobileDetailsMap, String mobileName) {
         String network = "";

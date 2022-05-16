@@ -43,9 +43,23 @@ public class CrawlForBrand {
     @Value("${mobile.ir.brands.url}")
     private String url;
 
+
     public boolean getBrand() {
         try {
+            Map<String ,String > brandUrls=getBrandSelenium();
+            fillBrandInfo(brandUrls);
+            removeOldBrands(brandUrls);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public Map<String ,String > getBrandSelenium(){
+        try {
+            //open the main page of mobile.ir
             driver.get(webPage);
+            //search for the list of brands that are on right side of the page
             WebElement ul = driver.findElement(By.className(sideMenu));
             List<WebElement> lis = ul.findElements(By.tagName(listItem));
             Map<String, String> brandUrls = new HashMap<>();
@@ -56,12 +70,11 @@ public class CrawlForBrand {
                     brandUrls.put(spans.get(1).getText(), a.getAttribute(url));
                 }
             }
-            fillBrandInfo(brandUrls);
-            removeOldBrands(brandUrls);
-            return true;
+            //returning the map that contains the keys of brands names and values of brand urls
+            return brandUrls;
         }catch (Exception e){
             LOGGER.error("Selenium Failed");
-            return false;
+            return null;
         }
     }
 

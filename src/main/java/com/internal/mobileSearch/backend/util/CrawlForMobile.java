@@ -68,78 +68,75 @@ public class CrawlForMobile {
     @Value("${mobile.ir.pagination.url}")
     private String paginationUrl;
 
-
     public boolean getMobileData(Map<String, String> brandUrls) {
-        Map<String, String> allMobNames = new HashMap<>();
-        List<String> pagesUrl = new ArrayList<>();
         for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
             try {
-                driver.get(entry.getValue());
-                try {
-                    WebElement paginationBox = driver.findElement(By.className(paginationBoxClass));
-                    WebElement pagination = paginationBox.findElement(By.className(paginationClass));
-                    List<WebElement> pages = pagination.findElements(By.tagName(paginationAnchorTag));
-                    for (WebElement webElement : pages) {
-                        pagesUrl.add(webElement.getAttribute(paginationUrl));
+                List<String> pagesUrl = getAllOfMobilePagesUrlSelenium(brandUrls);
+                Map<String, String> mobileDetails = getMobileDataSelenium(pagesUrl);
+                if (mobileDetails != null) {
+                    for (Map.Entry<String, String> entry1 : mobileDetails.entrySet()) {
+                        fillMobileData(entry1.getKey(), entry1.getValue(), entry.getKey());
                     }
-                    pagesUrl.remove(pagesUrl.size()-1);
-                    pagesUrl.add(entry.getValue());
-                    for (String url : pagesUrl) {
-                        driver.get(url);
-                        WebElement phonesGrid = driver.findElement(By.className(phoneGrid));
-                        List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
-                        if (mobs.size() > 2) {
-                            for (WebElement div : mobs) {
-                                if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
-                                    WebElement h4 = div.findElement(By.tagName(mobileTag));
-                                    WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
-                                    allMobNames.put(mobName.getText(), entry.getKey());
-                                    WebElement mobPrice = div.findElement(By.tagName(mobilePriceTag));
-                                    String priceOfMobile=mobPrice.getText();
-                                    priceOfMobile=priceOfMobile.replace("تومان","");
-                                    priceOfMobile=priceOfMobile.replace(",","");
-                                    priceOfMobile=priceOfMobile.replace(" ","");
-
-                                    LOGGER.info("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + priceOfMobile);
-                                    fillMobileData(mobName.getText(), priceOfMobile, entry.getKey());
-                                }
-                            }
-                        } else {
-                            brandService.updateBrandStatus(entry.getKey(), BrandStatus.INACTIVE.getStatus());
-                        }
-                    }
-                    removeOldMobileData(allMobNames);
-                } catch (Exception e) {
-                    WebElement phonesGrid = driver.findElement(By.className(phoneGrid));
-                    List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
-                    if (mobs.size() > 2) {
-                        for (WebElement div : mobs) {
-                            if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
-                                WebElement h4 = div.findElement(By.tagName(mobileTag));
-                                WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
-                                allMobNames.put(mobName.getText(), entry.getKey());
-                                WebElement mobPrice = div.findElement(By.tagName(mobilePriceTag));
-                                String priceOfMobile=mobPrice.getText();
-                                priceOfMobile=priceOfMobile.replace("تومان","");
-                                priceOfMobile=priceOfMobile.replace(",","");
-                                priceOfMobile=priceOfMobile.replace(" ","");
-
-                                LOGGER.info("Brand: " + entry.getKey() + ", MobileName: " + mobName.getText() + ", PRICE: " + priceOfMobile);
-                                fillMobileData(mobName.getText(), priceOfMobile, entry.getKey());
-                            }
-                        }
-                    } else {
-                        brandService.updateBrandStatus(entry.getKey(), BrandStatus.INACTIVE.getStatus());
-                    }
-                    removeOldMobileData(allMobNames);
+                } else {
+                    brandService.updateBrandStatus(entry.getKey(), BrandStatus.INACTIVE.getStatus());
                 }
-
-
             } catch (Exception e) {
-                LOGGER.error("Selenium Failed");
+                return false;
             }
         }
         return true;
+    }
+
+    public List<String> getAllOfMobilePagesUrlSelenium(Map<String, String> brandUrls) {
+        List<String> pagesUrl = new ArrayList<>();
+        for (Map.Entry<String, String> entry : brandUrls.entrySet()) {
+            pagesUrl.add(entry.getValue());
+            driver.get(entry.getValue());
+            try {
+                WebElement paginationBox = driver.findElement(By.className(paginationBoxClass));
+                WebElement pagination = paginationBox.findElement(By.className(paginationClass));
+                List<WebElement> pages = pagination.findElements(By.tagName(paginationAnchorTag));
+                for (WebElement webElement : pages) {
+                    pagesUrl.add(webElement.getAttribute(paginationUrl));
+                }
+                pagesUrl.remove(pagesUrl.size() - 1);
+                return pagesUrl;
+            } catch (Exception e) {
+                return pagesUrl;
+            }
+        }
+        return pagesUrl;
+    }
+
+    public Map<String, String> getMobileDataSelenium(List<String> pagesUrl) {
+        Map<String, String> mobilesNamesAndAvgPrices = new HashMap<>();
+        List<String> allMobNames = new ArrayList<>();
+        for (String url : pagesUrl) {
+            driver.get(url);
+            WebElement phonesGrid = driver.findElement(By.className(phoneGrid));
+            List<WebElement> mobs = phonesGrid.findElements(By.tagName(mobiles));
+            if (mobs.size() > 2) {
+                for (WebElement div : mobs) {
+                    if (div.getAttribute(cssClass).equals(phoneAvailableClass1 + " " + phoneAvailableClass2)) {
+                        WebElement h4 = div.findElement(By.tagName(mobileTag));
+                        WebElement mobName = h4.findElement(By.tagName(mobileNameTag));
+                        allMobNames.add(mobName.getText());
+                        WebElement mobPrice = div.findElement(By.tagName(mobilePriceTag));
+                        String priceOfMobile = mobPrice.getText();
+                        priceOfMobile = priceOfMobile.replace("تومان", "");
+                        priceOfMobile = priceOfMobile.replace(",", "");
+                        priceOfMobile = priceOfMobile.replace(" ", "");
+
+                        LOGGER.info("MobileName: " + mobName.getText() + ", PRICE: " + priceOfMobile);
+                        mobilesNamesAndAvgPrices.put(mobName.getText(), priceOfMobile);
+                    }
+                }
+            } else {
+                return null;
+            }
+        }
+        removeOldMobileData(allMobNames);
+        return mobilesNamesAndAvgPrices;
     }
 
     public void fillMobileData(String mobileName, String avgPrice, String brandName) {
@@ -150,18 +147,18 @@ public class CrawlForMobile {
             } else {
                 mobileService.updateMobileAvgPrice(mobileName, avgPrice);
                 mobileService.updateMobileStatus(mobileName, MobileStatus.ACTIVE.getStatus());
-                LOGGER.info("Updated Mobile Avg Price: " + mobileName+" And Status To Active");
+                LOGGER.info("Updated Mobile Avg Price: " + mobileName + " And Status To Active");
             }
         } catch (Exception e) {
             LOGGER.error("DataBase Connection Failed");
         }
     }
 
-    public void removeOldMobileData(Map<String, String> allMobNames) {
+    public void removeOldMobileData(List<String> allMobNames) {
         try {
             List<Mobile> allMobileData = mobileService.getAllMobileData();
             for (Mobile mobile : allMobileData) {
-                if (!allMobNames.containsKey(mobile.getMobileName())) {
+                if (!allMobNames.contains(mobile.getMobileName())) {
                     mobileService.updateMobileStatus(mobile.getMobileName(), MobileStatus.INACTIVE.getStatus());
                     LOGGER.info("Mobile: " + mobile.getMobileName() + " Status Has Been Updated To: " + MobileStatus.INACTIVE.name());
                 }
