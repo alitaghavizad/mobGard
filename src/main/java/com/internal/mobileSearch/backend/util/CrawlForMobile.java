@@ -160,6 +160,7 @@ public class CrawlForMobile {
             } else {
                 mobileService.updateMobileAvgPriceAndUrl(mobileName, avgPrice, url);
                 mobileService.updateMobileStatus(mobileName, MobileStatus.ACTIVE.getStatus());
+                brandService.updateBrandMobiles(brandName,mobileService.getMobile(mobileName));
                 LOGGER.info("Updated Mobile Avg Price: " + mobileName + " And Status To Active");
             }
         } catch (Exception e) {

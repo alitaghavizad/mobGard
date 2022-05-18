@@ -167,4 +167,24 @@ public class MobileService {
         }
     }
 
+    @Transactional
+    public boolean updateMobileDetails(String mobileName, MobileDetails mobileDetails) {
+        if (mobileExists(mobileName)) {
+            Mobile mobile = getMobile(mobileName);
+            mobile.setMobileDetails(mobileDetails);
+            mobile.setLastUpdateDate(new Date());
+            try {
+                mobileRepository.save(mobile);
+                LOGGER.info("Mobile updated ");
+                return true;
+            }catch (Exception e){
+                LOGGER.error("Failed To Communicate With DataBase(updateMobile)"+mobileName);
+                return false;
+            }
+        } else {
+            LOGGER.warn("Mobile Does Not Exist: "+mobileName);
+            return false;
+        }
+    }
+
 }

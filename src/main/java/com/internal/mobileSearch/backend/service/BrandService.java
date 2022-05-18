@@ -2,6 +2,7 @@ package com.internal.mobileSearch.backend.service;
 
 import com.internal.mobileSearch.backend.da.model.Brand;
 import com.internal.mobileSearch.backend.da.model.BrandStatus;
+import com.internal.mobileSearch.backend.da.model.Mobile;
 import com.internal.mobileSearch.backend.da.repository.BrandRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,6 +54,8 @@ public class BrandService {
             return false;
         }
     }
+
+
 
     @Transactional
     public boolean removeBrand(String brandName){
@@ -129,6 +132,28 @@ public class BrandService {
             try {
                 brandRepository.save(brand);
                 LOGGER.info("Brand updated :"+brandName+" To "+ status);
+                return true;
+            }catch (Exception e){
+                LOGGER.error("Failed To Communicate With DataBase(updateBrand)"+brandName);
+                return false;
+            }
+        } else {
+            LOGGER.warn("Brand Does Not Exist: "+brandName);
+            return false;
+        }
+    }
+
+    @Transactional
+    public boolean updateBrandMobiles(String brandName, Mobile mobile){
+        if (brandExists(brandName)){
+            Brand brand=getBrand(brandName);
+            brand.setLastUpdateDate(new Date());
+            List<Mobile> brandMobiles=brand.getMobile();
+            brandMobiles.add(mobile);
+            brand.setMobile(brandMobiles);
+            try {
+                brandRepository.save(brand);
+                LOGGER.info("Brand updated :"+brandName);
                 return true;
             }catch (Exception e){
                 LOGGER.error("Failed To Communicate With DataBase(updateBrand)"+brandName);

@@ -70,6 +70,7 @@ public class CrawlForDetails {
     public boolean getMobileDetails(String mobileName, String brandName) {
         Map<String ,String > mobileDetailsMap=getMobileDetailsSelenium(mobileName,brandName);
         FillMobileDetails(mobileDetailsMap, mobileName);
+        mobileService.updateMobileDetails(mobileName,mobileDetailsService.getMobileDetails(mobileService.getMobile(mobileName)));
         return true;
     }
 
